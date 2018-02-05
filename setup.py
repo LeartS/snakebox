@@ -10,7 +10,7 @@ with open(path.join(here, 'README.rst'), encoding='utf-8') as f:
 
 setup(
     name='snakebox',
-    version='0.1.0',
+    version='0.2.0',
     description='A super basic API wrapper for Baasbox',
     long_description=long_description,
     url='https://github.com/LeartS/snakebox',

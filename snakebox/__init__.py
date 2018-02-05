@@ -79,9 +79,16 @@ class Baasbox(object):
         if filter_params:
             data['params'] = filter_params
         r = self._rest_call('document/{}'.format(collection), 'GET', data)
-        logger.debug(
-            'Received response {}: {}'.format(r.status_code, r.json()))
+        logger.debug('Received response %s: %s', r.status_code, r.json())
         return r.json().get('data')
+
+    def update_document(self, collection, document):
+        r = self._rest_call(
+            'document/{}/{}'.format(collection, document['id']),
+            'PUT', document)
+        logger.debug('Received response %s: %s', r.status_code, r.json())
+        return r.json().get('data')
+
 
     def call_plugin(self, plugin, method='get', data=None):
         logger.debug('Calling plugin {}, method {}, data {}'.format(

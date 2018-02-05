@@ -26,7 +26,11 @@ login with a valid user and password and for all subsequent calls:
   user = baasbox.login(username, password)
 
   books = baasbox.search_document('Books', 'author = ? or year > ?', ['Tolkien', 1900])
+  first_book = books[0]
+  first_book['title'] = 'A new changed title'
+  baasbox.update_document('Books', first_book)
 
-At the moment, snakebox only has utility methods for searching documents in a collection
-and calling user-defined plugins. All other APIs have yet to be implemented, but you
-can call all of Baasbox's API endpoints by using the low-level ``_rest_call`` method.
+At the moment, snakebox only has utility methods for searching documents in a collection,
+updating a document and calling user-defined plugins.
+All other APIs have yet to be implemented, but you can call all of Baasbox's API
+endpoints by using the low-level ``_rest_call`` method.
